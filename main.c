@@ -2,10 +2,10 @@
 
 #include "vec_int.h"
 
+int main()
+{
 
-int main() {
-
-	VecInt* vec = vec_int_create(1);
+	VecInt *vec = vec_int_create(1);
 
 	vec_int_push_back(vec, 12);
 	vec_int_push_back(vec, 1);
@@ -37,7 +37,7 @@ int main() {
 	vec_int_print(vec);
 	putchar('\n');
 
-	VecInt* vec2 = vec_int_create(1);
+	VecInt *vec2 = vec_int_create(1);
 	vec_int_push_back(vec2, 9);
 	vec_int_push_back(vec2, 81);
 	vec_int_push_back(vec2, 12);
@@ -52,16 +52,19 @@ int main() {
 	vec_int_print(vec2);
 	putchar('\n');
 
-	VecInt* merged = vec_int_merge(NULL, vec, vec2);
+	VecInt *merged = vec_int_merge(NULL, vec, vec2);
 
 	printf("merged: ");
 	vec_int_print(merged);
 	putchar('\n');
 
 	bool is_sorted = vec_int_is_sorted(merged);
-	if (is_sorted) {
+	if (is_sorted)
+	{
 		printf("merged is sorted\n");
-	} else {
+	}
+	else
+	{
 		printf("merged is not sorted\n");
 	}
 
