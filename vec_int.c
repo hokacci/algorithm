@@ -262,10 +262,6 @@ void vec_int_msort(VecInt *v)
 
 bool vec_int_is_sorted(const VecInt *v)
 {
-	if (v->size <= 1)
-	{
-		return true;
-	}
 	for (int i = 1; i < v->size; ++i)
 	{
 		if (v->ptr[i] < v->ptr[i - 1])
