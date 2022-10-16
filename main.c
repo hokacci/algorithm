@@ -73,5 +73,12 @@ int main() {
 	}
 	putchar('\n');
 
+	bool is_sorted = vec_int_is_sorted(merged);
+	if (is_sorted) {
+		printf("merged is sorted\n");
+	} else {
+		printf("merged is not sorted\n");
+	}
+
 	return 0;
 }

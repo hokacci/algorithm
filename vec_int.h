@@ -37,3 +37,5 @@ void vec_int_qsort(VecInt* v);
 VecInt* vec_int_merge(VecInt* merged, const VecInt* a, const VecInt* b);
 
 void vec_int_msort(VecInt* v);
+
+bool vec_int_is_sorted(VecInt* v);
