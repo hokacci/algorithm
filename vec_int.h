@@ -34,4 +34,6 @@ int vec_int_square_sum(VecInt* v);
 
 void vec_int_qsort(VecInt* v);
 
-VecInt* vec_int_merge_sorted(VecInt* a, VecInt* b);
+void vec_int_merge_sorted(VecInt* merged, const VecInt* a, const VecInt* b);
+
+void vec_int_msort(VecInt* v);

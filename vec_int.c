@@ -167,29 +167,55 @@ void vec_int_qsort(VecInt* v) {
 }
 
 
-VecInt* vec_int_merge_sorted(VecInt* a, VecInt* b) {
-	VecInt* v = vec_int_create(a->capacity + b->capacity);
+void vec_int_merge_sorted(VecInt* merged, const VecInt* a, const VecInt* b) {
 	int i = 0;
 	int j = 0;
+	vec_int_reserve(merged, merged->size + a->size + b->size);
 	while (i < a->size && j < b->size) {
 		while (i < a->size && a->ptr[i] <= b->ptr[j]) {
-			vec_int_push_back(v, a->ptr[i]);
+			vec_int_push_back(merged, a->ptr[i]);
 			++i;
 		}
 		while (j < b->size && a->ptr[i] >= b->ptr[j]) {
-			vec_int_push_back(v, b->ptr[j]);
+			vec_int_push_back(merged, b->ptr[j]);
 			++j;
 		}
 	}
 	if (i < a->size) {
 		for (; i < a->size; ++i) {
-			vec_int_push_back(v, a->ptr[i]);
+			vec_int_push_back(merged, a->ptr[i]);
 		}
 	}
-	if (j < a->size) {
+	if (j < b->size) {
 		for (; j < b->size; ++j) {
-			vec_int_push_back(v, b->ptr[j]);
+			vec_int_push_back(merged, b->ptr[j]);
 		}
 	}
-	return v;
 }
+
+
+void vec_int_msort(VecInt* v) {
+	if (v->size <= 1) {
+		return;
+	}
+	int pivot_index = v->size / 2;
+	VecInt* a = vec_int_create(v->size);
+	VecInt* b = vec_int_create(v->size);
+
+	for (int i = 0; i < pivot_index; ++i) {
+		vec_int_push_back(a, v->ptr[i]);
+	}
+	for (int i = pivot_index; i < v->size; ++i) {
+		vec_int_push_back(b, v->ptr[i]);
+	}
+
+	vec_int_msort(a);
+	vec_int_msort(b);
+
+	vec_int_clear(v);
+	vec_int_merge_sorted(v, a, b);
+
+	vec_int_destroy(b);
+	vec_int_destroy(a);
+}
+
