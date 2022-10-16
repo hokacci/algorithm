@@ -59,6 +59,7 @@ int vec_int_index(VecInt* v, int a) {
 	return -1;
 }
 
+
 bool vec_int_contains(VecInt* v, int a) {
 	for (int i = 0; i < v->size; ++i) {
 		if (v->ptr[i] == a) {
@@ -68,17 +69,21 @@ bool vec_int_contains(VecInt* v, int a) {
 	return false;
 }
 
+
 int vec_int_size(VecInt* v) {
 	return v->size;
 }
+
 
 int vec_int_capacity(VecInt* v) {
 	return v->capacity;
 }
 
+
 void vec_int_clear(VecInt* v) {
 	v->size = 0;
 }
+
 
 int vec_int_max(VecInt* v) {
 	int max_sofar = v->ptr[0];
@@ -90,6 +95,7 @@ int vec_int_max(VecInt* v) {
 	return max_sofar;
 }
 
+
 int vec_int_min(VecInt* v) {
 	int min_sofar = v->ptr[0];
 	for (int i = 1; i < v->size; ++i) {
@@ -99,6 +105,16 @@ int vec_int_min(VecInt* v) {
 	}
 	return min_sofar;
 }
+
+
+int vec_int_sum(VecInt* v) {
+	int sum_sofar = 0;
+	for (int i = 0; i < v->size; ++i) {
+		sum_sofar += v->ptr[i];
+	}
+	return sum_sofar;
+}
+
 
 void vec_int_qsort(VecInt* v) {
 	if (v->size <= 1) {
