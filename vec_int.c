@@ -203,8 +203,8 @@ void vec_int_msort(VecInt* v) {
 		return;
 	}
 	int pivot_index = v->size / 2;
-	VecInt* a = vec_int_create(v->size);
-	VecInt* b = vec_int_create(v->size);
+	VecInt* a = vec_int_create(pivot_index + 1);
+	VecInt* b = vec_int_create(pivot_index + 1);
 
 	for (int i = 0; i < pivot_index; ++i) {
 		vec_int_push_back(a, v->ptr[i]);
