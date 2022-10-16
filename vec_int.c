@@ -67,3 +67,15 @@ bool vec_int_contains(VecInt* v, int a) {
 	}
 	return false;
 }
+
+int vec_int_size(VecInt* v) {
+	return v->size;
+}
+
+int vec_int_capacity(VecInt* v) {
+	return v->capacity;
+}
+
+void vec_int_clear(VecInt* v) {
+	v->size = 0;
+}

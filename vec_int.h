@@ -17,3 +17,9 @@ int vec_int_get(VecInt* v, int i);
 int vec_int_index(VecInt* v, int a);
 
 bool vec_int_contains(VecInt* v, int a);
+
+int vec_int_size(VecInt* v);
+
+int vec_int_capacity(VecInt* v);
+
+void vec_int_clear(VecInt* v);
