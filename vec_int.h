@@ -27,3 +27,5 @@ void vec_int_clear(VecInt* v);
 int vec_int_max(VecInt* v);
 
 int vec_int_min(VecInt* v);
+
+void vec_int_qsort(VecInt* v);
