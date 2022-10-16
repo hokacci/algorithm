@@ -30,4 +30,6 @@ int vec_int_min(VecInt* v);
 
 int vec_int_sum(VecInt* v);
 
+int vec_int_square_sum(VecInt* v);
+
 void vec_int_qsort(VecInt* v);

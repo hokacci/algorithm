@@ -116,6 +116,15 @@ int vec_int_sum(VecInt* v) {
 }
 
 
+int vec_int_square_sum(VecInt* v) {
+	int sum_sofar = 0;
+	for (int i = 0; i < v->size; ++i) {
+		sum_sofar += v->ptr[i] * v->ptr[i];
+	}
+	return sum_sofar;
+}
+
+
 void vec_int_qsort(VecInt* v) {
 	if (v->size <= 1) {
 		return;

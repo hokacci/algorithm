@@ -25,10 +25,12 @@ int main() {
 	int min = vec_int_min(vec);
 	int max = vec_int_max(vec);
 	int sum = vec_int_sum(vec);
+	int square_sum = vec_int_square_sum(vec);
 
 	printf("min: %d\n", min);
 	printf("max: %d\n", max);
 	printf("sum: %d\n", sum);
+	printf("square_sum: %d\n", square_sum);
 
 	vec_int_qsort(vec);
 
