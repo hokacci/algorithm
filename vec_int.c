@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "vec_int.h"
 
@@ -234,4 +235,13 @@ bool vec_int_is_sorted(const VecInt* v) {
 		}
 	}
 	return true;
+}
+
+int vec_int_print(const VecInt* v) {
+	int count = 0;
+	for (int i = 0; i < v->size - 1; ++i) {
+		count += printf("%d ", v->ptr[i]);
+	}
+	count += printf("%d", v->ptr[v->size - 1]);
+	return count;
 }
