@@ -45,12 +45,12 @@ void vec_int_reserve(VecInt* v, int n) {
 }
 
 
-int vec_int_get(VecInt* v, int i) {
+int vec_int_get(const VecInt* v, int i) {
 	return v->ptr[i];
 }
 
 
-int vec_int_index(VecInt* v, int a) {
+int vec_int_index(const VecInt* v, int a) {
 	for (int i = 0; i < v->size; ++i) {
 		if (v->ptr[i] == a) {
 			return i;
@@ -60,7 +60,7 @@ int vec_int_index(VecInt* v, int a) {
 }
 
 
-bool vec_int_contains(VecInt* v, int a) {
+bool vec_int_contains(const VecInt* v, int a) {
 	for (int i = 0; i < v->size; ++i) {
 		if (v->ptr[i] == a) {
 			return true;
@@ -70,12 +70,12 @@ bool vec_int_contains(VecInt* v, int a) {
 }
 
 
-int vec_int_size(VecInt* v) {
+int vec_int_size(const VecInt* v) {
 	return v->size;
 }
 
 
-int vec_int_capacity(VecInt* v) {
+int vec_int_capacity(const VecInt* v) {
 	return v->capacity;
 }
 
@@ -85,7 +85,7 @@ void vec_int_clear(VecInt* v) {
 }
 
 
-int vec_int_max(VecInt* v) {
+int vec_int_max(const VecInt* v) {
 	int max_sofar = v->ptr[0];
 	for (int i = 1; i < v->size; ++i) {
 		if (v->ptr[i] > max_sofar) {
@@ -96,7 +96,7 @@ int vec_int_max(VecInt* v) {
 }
 
 
-int vec_int_min(VecInt* v) {
+int vec_int_min(const VecInt* v) {
 	int min_sofar = v->ptr[0];
 	for (int i = 1; i < v->size; ++i) {
 		if (v->ptr[i] < min_sofar) {
@@ -107,7 +107,7 @@ int vec_int_min(VecInt* v) {
 }
 
 
-int vec_int_sum(VecInt* v) {
+int vec_int_sum(const VecInt* v) {
 	int sum_sofar = 0;
 	for (int i = 0; i < v->size; ++i) {
 		sum_sofar += v->ptr[i];
@@ -116,7 +116,7 @@ int vec_int_sum(VecInt* v) {
 }
 
 
-int vec_int_square_sum(VecInt* v) {
+int vec_int_square_sum(const VecInt* v) {
 	int sum_sofar = 0;
 	for (int i = 0; i < v->size; ++i) {
 		sum_sofar += v->ptr[i] * v->ptr[i];
@@ -224,7 +224,7 @@ void vec_int_msort(VecInt* v) {
 }
 
 
-bool vec_int_is_sorted(VecInt* v) {
+bool vec_int_is_sorted(const VecInt* v) {
 	if (v->size <= 1) {
 		return true;
 	}
