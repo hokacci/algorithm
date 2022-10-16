@@ -167,7 +167,10 @@ void vec_int_qsort(VecInt* v) {
 }
 
 
-void vec_int_merge_sorted(VecInt* merged, const VecInt* a, const VecInt* b) {
+VecInt* vec_int_merge(VecInt* merged, const VecInt* a, const VecInt* b) {
+	if (merged == NULL) {
+		merged = vec_int_create(a->capacity + b->capacity);
+	}
 	int i = 0;
 	int j = 0;
 	vec_int_reserve(merged, merged->size + a->size + b->size);
@@ -191,6 +194,7 @@ void vec_int_merge_sorted(VecInt* merged, const VecInt* a, const VecInt* b) {
 			vec_int_push_back(merged, b->ptr[j]);
 		}
 	}
+	return merged;
 }
 
 
@@ -213,7 +217,7 @@ void vec_int_msort(VecInt* v) {
 	vec_int_msort(b);
 
 	vec_int_clear(v);
-	vec_int_merge_sorted(v, a, b);
+	vec_int_merge(v, a, b);
 
 	vec_int_destroy(b);
 	vec_int_destroy(a);

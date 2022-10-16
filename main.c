@@ -63,8 +63,7 @@ int main() {
 	}
 	putchar('\n');
 
-	VecInt* merged = vec_int_create(1);
-	vec_int_merge_sorted(merged, vec, vec2);
+	VecInt* merged = vec_int_merge(NULL, vec, vec2);
 
 	printf("merged: ");
 	int sizem = vec_int_size(merged);
