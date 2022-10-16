@@ -17,11 +17,14 @@ int main() {
 	vec_int_push_back(vec, 7);
 	vec_int_push_back(vec, 11);
 
+	printf("vec: ");
 	int size = vec_int_size(vec);
 	for (int i = 0; i < size; ++i) {
 		int ith = vec_int_get(vec, i);
-		printf("%d\n", ith);
+		printf("%d ", ith);
 	}
+	putchar('\n');
+
 	int min = vec_int_min(vec);
 	int max = vec_int_max(vec);
 	int sum = vec_int_sum(vec);
@@ -34,12 +37,41 @@ int main() {
 
 	vec_int_qsort(vec);
 
-	printf("sorted\n");
-
+	printf("sorted: ");
 	for (int i = 0; i < size; ++i) {
 		int ith = vec_int_get(vec, i);
-		printf("%d\n", ith);
+		printf("%d ", ith);
 	}
+	putchar('\n');
+
+	VecInt* vec2 = vec_int_create(1);
+	vec_int_push_back(vec2, 9);
+	vec_int_push_back(vec2, 81);
+	vec_int_push_back(vec2, 12);
+	vec_int_push_back(vec2, 7);
+	vec_int_push_back(vec2, 57);
+	vec_int_push_back(vec2, 123);
+	vec_int_push_back(vec2, 26);
+
+	vec_int_qsort(vec2);
+
+	printf("vec2: ");
+	int size2 = vec_int_size(vec2);
+	for (int i = 0; i < size2; ++i) {
+		int ith = vec_int_get(vec2, i);
+		printf("%d ", ith);
+	}
+	putchar('\n');
+
+	VecInt* merged = vec_int_merge_sorted(vec, vec2);
+
+	printf("merged: ");
+	int sizem = vec_int_size(merged);
+	for (int i = 0; i < sizem; ++i) {
+		int ith = vec_int_get(merged, i);
+		printf("%d ", ith);
+	}
+	putchar('\n');
 
 	return 0;
 }
