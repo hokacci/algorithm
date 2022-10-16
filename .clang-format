@@ -1,0 +1,11 @@
+---
+BasedOnStyle: Microsoft
+UseTab: Always
+IndentWidth: 4
+ContinuationIndentWidth: 4
+PenaltyIndentedWhitespace: 10
+TabWidth: 4
+NamespaceIndentation: All
+AlwaysBreakTemplateDeclarations: true
+AlignAfterOpenBracket : BlockIndent
+AlignOperands : DontAlign
