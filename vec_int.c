@@ -79,3 +79,23 @@ int vec_int_capacity(VecInt* v) {
 void vec_int_clear(VecInt* v) {
 	v->size = 0;
 }
+
+int vec_int_max(VecInt* v) {
+	int max_sofar = v->ptr[0];
+	for (int i = 1; i < v->size; ++i) {
+		if (v->ptr[i] > max_sofar) {
+			max_sofar = v->ptr[i];
+		}
+	}
+	return max_sofar;
+}
+
+int vec_int_min(VecInt* v) {
+	int min_sofar = v->ptr[0];
+	for (int i = 1; i < v->size; ++i) {
+		if (v->ptr[i] < min_sofar) {
+			min_sofar = v->ptr[i];
+		}
+	}
+	return min_sofar;
+}

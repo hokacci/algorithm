@@ -16,6 +16,11 @@ int main() {
 		int ith = vec_int_get(vec, i);
 		printf("%d\n", ith);
 	}
+	int min = vec_int_min(vec);
+	int max = vec_int_max(vec);
+
+	printf("min: %d\n", min);
+	printf("max: %d\n", max);
 
 	return 0;
 }

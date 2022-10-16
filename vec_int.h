@@ -23,3 +23,7 @@ int vec_int_size(VecInt* v);
 int vec_int_capacity(VecInt* v);
 
 void vec_int_clear(VecInt* v);
+
+int vec_int_max(VecInt* v);
+
+int vec_int_min(VecInt* v);
