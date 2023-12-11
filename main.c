@@ -2,20 +2,15 @@
 
 #include "vec_int.h"
 
+#define countof(x) (sizeof(x) / sizeof((x)[0]))
+
 int main()
 {
-
-	VecInt *vec = vec_int_create(1);
-
-	vec_int_push_back(vec, 12);
-	vec_int_push_back(vec, 1);
-	vec_int_push_back(vec, 43);
-	vec_int_push_back(vec, 29);
-	vec_int_push_back(vec, 8);
-	vec_int_push_back(vec, 74);
-	vec_int_push_back(vec, 0);
-	vec_int_push_back(vec, 7);
-	vec_int_push_back(vec, 11);
+	VecInt* vec;
+	{
+		int arr[] = { 12, 1, 43, 29, 8, 74, 0, 7, 11 };
+		vec = vec_int_create_from_array(100, countof(arr), arr);
+	}
 
 	printf("vec: ");
 	vec_int_println(vec);
@@ -35,15 +30,11 @@ int main()
 	printf("sorted: ");
 	vec_int_println(vec);
 
-	VecInt *vec2 = vec_int_create(1);
-	vec_int_push_back(vec2, 9);
-	vec_int_push_back(vec2, 81);
-	vec_int_push_back(vec2, 12);
-	vec_int_push_back(vec2, 7);
-	vec_int_push_back(vec2, 57);
-	vec_int_push_back(vec2, 123);
-	vec_int_push_back(vec2, 26);
-
+	VecInt *vec2;
+	{
+		int arr[] = { 9, 81, 12, 7, 57, 123, 26 };
+		vec2 = vec_int_create_from_array(100, countof(arr), arr);
+	}
 	vec_int_msort(vec2);
 
 	printf("vec2: ");

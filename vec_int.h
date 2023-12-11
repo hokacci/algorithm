@@ -7,6 +7,8 @@ VecInt *vec_int_create(int capacity);
 
 VecInt *vec_int_create_init(int capacity, int size, ...);
 
+VecInt *vec_int_create_from_array(int capacity, int size, int *arr);
+
 void vec_int_destroy(VecInt *v);
 
 void vec_int_push_back(VecInt *v, int a);

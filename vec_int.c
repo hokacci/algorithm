@@ -40,6 +40,21 @@ VecInt *vec_int_create_init(int capacity, int size, ...)
 	return v;
 }
 
+VecInt *vec_int_create_from_array(int capacity, int size, int *arr)
+{
+	VecInt *v = malloc(sizeof(VecInt));
+	v->size = 0;
+	v->capacity = capacity;
+	v->ptr = (int *)malloc(capacity * sizeof(int));
+
+	for (int i = 0; i < size; ++i)
+	{
+		vec_int_push_back(v, arr[i]);
+	}
+
+	return v;
+}
+
 void vec_int_destroy(VecInt *v)
 {
 	free(v->ptr);
