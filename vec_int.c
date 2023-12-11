@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 #include "vec_int.h"
 
@@ -16,6 +17,26 @@ VecInt *vec_int_create(int capacity)
 	v->size = 0;
 	v->capacity = capacity;
 	v->ptr = (int *)malloc(capacity * sizeof(int));
+	return v;
+}
+
+VecInt *vec_int_create_init(int capacity, int size, ...)
+{
+	va_list args;
+	va_start(args, size);
+
+	VecInt *v = malloc(sizeof(VecInt));
+	v->size = 0;
+	v->capacity = capacity;
+	v->ptr = (int *)malloc(capacity * sizeof(int));
+
+	for (int i = 0; i < size; ++i)
+	{
+		vec_int_push_back(v, va_arg(args, int));
+	}
+
+	va_end(args);
+
 	return v;
 }
 
@@ -281,4 +302,11 @@ int vec_int_print(const VecInt *v)
 	}
 	count += printf("%d", v->ptr[v->size - 1]);
 	return count;
+}
+
+int vec_int_println(const VecInt *v)
+{
+	int count = vec_int_print(v);
+	putchar('\n');
+	return count + 1;
 }

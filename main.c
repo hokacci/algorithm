@@ -18,8 +18,7 @@ int main()
 	vec_int_push_back(vec, 11);
 
 	printf("vec: ");
-	vec_int_print(vec);
-	putchar('\n');
+	vec_int_println(vec);
 
 	int min = vec_int_min(vec);
 	int max = vec_int_max(vec);
@@ -34,8 +33,7 @@ int main()
 	vec_int_qsort(vec);
 
 	printf("sorted: ");
-	vec_int_print(vec);
-	putchar('\n');
+	vec_int_println(vec);
 
 	VecInt *vec2 = vec_int_create(1);
 	vec_int_push_back(vec2, 9);
@@ -49,14 +47,12 @@ int main()
 	vec_int_msort(vec2);
 
 	printf("vec2: ");
-	vec_int_print(vec2);
-	putchar('\n');
+	vec_int_println(vec2);
 
 	VecInt *merged = vec_int_merge(NULL, vec, vec2);
 
 	printf("merged: ");
-	vec_int_print(merged);
-	putchar('\n');
+	vec_int_println(merged);
 
 	bool is_sorted = vec_int_is_sorted(merged);
 	if (is_sorted)
@@ -67,6 +63,9 @@ int main()
 	{
 		printf("merged is not sorted\n");
 	}
+
+	VecInt* vec3 = vec_int_create_init(100, 5, 10, 20, 30, 40, 50);
+	vec_int_println(vec3);
 
 	return 0;
 }

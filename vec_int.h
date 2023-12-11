@@ -5,6 +5,8 @@ typedef struct VecInt VecInt;
 
 VecInt *vec_int_create(int capacity);
 
+VecInt *vec_int_create_init(int capacity, int size, ...);
+
 void vec_int_destroy(VecInt *v);
 
 void vec_int_push_back(VecInt *v, int a);
@@ -40,3 +42,5 @@ void vec_int_msort(VecInt *v);
 bool vec_int_is_sorted(const VecInt *v);
 
 int vec_int_print(const VecInt *v);
+
+int vec_int_println(const VecInt *v);
